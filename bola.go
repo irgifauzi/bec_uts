@@ -48,7 +48,7 @@ func InsertPemain(nama string, posisi string, tinggi float64, berat float64, tan
 
 // Fungsi untuk mendapatkan data pemain berdasarkan nama
 func GetPemainByNama(nama string) (pemain Pemain) {
-	collection := MongoConnect("football_db").Collection("")
+	collection := MongoConnect("football_db").Collection("pemain")
 	filter := bson.M{"nama": nama}
 	err := collection.FindOne(context.TODO(), filter).Decode(&pemain)
 	if err != nil {
